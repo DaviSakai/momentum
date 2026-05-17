@@ -52,6 +52,29 @@ O Momentum tem como objetivo ajudar usuários a acompanhar e entender aspectos i
 - GitHub
 - VS Code
 
+## Estrutura Inicial
+
+```text
+Momentum/
+├── backend/
+├── docs/
+├── frontend/
+├── .gitignore
+└── README.md
+```
+
+### `frontend/`
+
+Aplicação web do Momentum, responsável pela interface, componentes, telas e experiência do usuário.
+
+### `backend/`
+
+API do Momentum, responsável por rotas, regras de negócio, persistência de dados e integrações futuras.
+
+### `docs/`
+
+Documentação de apoio do projeto, incluindo roadmap e decisões importantes de evolução.
+
 ## Direção de Produto
 
 O Momentum deve transmitir a sensação de um dashboard moderno e premium: limpo, focado, elegante, responsivo e útil.
