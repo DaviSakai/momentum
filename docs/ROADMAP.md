@@ -12,7 +12,7 @@ Este roadmap mantém a evolução do projeto organizada e educativa. Cada fase d
 
 ## Fase 2: Fundação do Frontend
 
-- Criar a aplicação React.
+- Criar ou migrar a aplicação frontend para Next.js + React.
 - Definir a estrutura base de pastas.
 - Construir o primeiro layout de dashboard.
 - Estabelecer estilos globais e direção visual em dark mode.

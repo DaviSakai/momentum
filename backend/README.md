@@ -1,23 +1,48 @@
-# Backend
+# Momentum — Backend
 
-Esta pasta conterá a API backend do Momentum.
+This is a Node.js + Express backend providing the REST API for the Momentum platform.
 
-## Objetivo
+## Architecture
 
-Construir a camada de servidor da plataforma usando Node.js, Express e SQLite inicialmente.
+- **Framework:** Express.js
+- **Database:** SQLite (via `better-sqlite3` with WAL mode enabled)
+- **Migrations:** Custom SQL migrator (`src/database/migrator.js`)
+- **Structure:** Modular Controller-Service-Model architecture
 
-## Responsabilidades
+## Getting Started
 
-- rotas da API
-- regras de negócio
-- validações
-- persistência de dados
-- autenticação futuramente
-- integração com o banco de dados
+First, ensure dependencies are installed. Then, run the development server:
 
-## Próximos Passos
+```bash
+npm run dev
+```
 
-- criar a API Express
-- adicionar endpoint de health check
-- configurar SQLite
-- implementar o primeiro recurso de acompanhamento
+The server will start on `http://localhost:3001` (or your configured `PORT`).
+Database migrations run automatically on startup.
+
+## Environment Variables
+
+Copy `.env.example` to `.env` and configure your local variables:
+
+```bash
+cp .env.example .env
+```
+
+Required variables:
+- `PORT`: Port to listen on (default: 3001)
+- `DATABASE_PATH`: Relative path to the SQLite database file
+- `CORS_ORIGIN`: Allowed origin for requests (default: `http://localhost:3000`)
+- `JWT_SECRET`: Secret key for signing authentication tokens
+- `JWT_EXPIRY`: Token expiration time (e.g., `7d`)
+
+## Project Structure
+
+- `server.js`: Entry point, Express configuration, and startup sequence.
+- `src/routes/`: Route definitions matching endpoints to controllers.
+- `src/controllers/`: Request handling and HTTP response mapping.
+- `src/services/`: Core business logic and validation coordination.
+- `src/models/`: Database interaction and SQL queries.
+- `src/validators/`: Input validation logic.
+- `src/middlewares/`: Express middlewares (auth, error handling).
+- `src/database/`: SQLite connection setup and migration runner.
+- `src/utils/`: Shared helper functions.
