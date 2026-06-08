@@ -95,7 +95,7 @@
 /* --- Cards Grid --- */
 .dashboard-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--space-5);
 }
 
@@ -104,6 +104,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  min-height: 200px;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -112,22 +113,20 @@
   box-shadow: var(--shadow-glow-teal);
 }
 
-.dashboard-card-icon {
-  font-size: var(--text-2xl);
-}
-
-.dashboard-card h3 {
-  font-size: var(--text-base);
-  font-weight: var(--weight-semibold);
-}
-
-.dashboard-card-status {
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-}
-
 /* --- Responsive --- */
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1279px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
   .dashboard-header {
     padding: var(--space-4) var(--space-5);
   }
@@ -139,10 +138,18 @@
   .dashboard-cards {
     grid-template-columns: 1fr;
   }
+
+  .dashboard-welcome h1 {
+    font-size: var(--text-2xl);
+  }
 }
 
 @media (max-width: 480px) {
   .dashboard-username {
     display: none;
+  }
+
+  .dashboard-main {
+    padding: var(--space-4);
   }
 }

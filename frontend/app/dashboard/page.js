@@ -1,7 +1,15 @@
 'use client';
 
+import { useState, useEffect, useCallback } from 'react';
 import ProtectedRoute from '../../src/features/auth/components/ProtectedRoute';
 import { useAuth } from '../../src/features/auth/context/AuthContext';
+import { getSummary } from '../../src/services/dashboardApi';
+import GreetingHeader from '../../src/features/dashboard/components/GreetingHeader';
+import DashboardLayout from '../../src/features/dashboard/components/DashboardLayout';
+import HealthSummaryCard from '../../src/features/dashboard/components/HealthSummaryCard';
+import TaskSummaryCard from '../../src/features/dashboard/components/TaskSummaryCard';
+import GoalSummaryCard from '../../src/features/dashboard/components/GoalSummaryCard';
+import ProductivityCard from '../../src/features/dashboard/components/ProductivityCard';
 import './dashboard.css';
 
 export default function DashboardPage() {
@@ -14,6 +22,30 @@ export default function DashboardPage() {
 
 function DashboardContent() {
   const { user, logout } = useAuth();
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const fetchDashboard = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const result = await getSummary();
+      setData(result);
+    } catch (err) {
+      if (err.status === 401) {
+        // Auth error — will be handled by ProtectedRoute
+        return;
+      }
+      setError(err.message || 'Erro ao carregar dados');
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchDashboard();
+  }, [fetchDashboard]);
 
   return (
     <div className="dashboard-shell">
@@ -31,37 +63,37 @@ function DashboardContent() {
       </header>
 
       <main className="dashboard-main">
-        <div className="dashboard-welcome">
-          <span className="dashboard-eyebrow">Dashboard</span>
-          <h1>Bem-vindo ao Momentum</h1>
-          <p>Seu painel pessoal está pronto. As funcionalidades estão sendo construídas.</p>
-        </div>
+        <GreetingHeader
+          name={user?.name}
+          date={data?.greeting?.date}
+        />
 
-        <section className="dashboard-cards" aria-label="Resumo">
-          <article className="card dashboard-card">
-            <div className="dashboard-card-icon">💚</div>
-            <h3>Check-in Diário</h3>
-            <p className="dashboard-card-status">Em breve</p>
-          </article>
-
-          <article className="card dashboard-card">
-            <div className="dashboard-card-icon">🎯</div>
-            <h3>Metas</h3>
-            <p className="dashboard-card-status">Em breve</p>
-          </article>
-
-          <article className="card dashboard-card">
-            <div className="dashboard-card-icon">📋</div>
-            <h3>Tarefas</h3>
-            <p className="dashboard-card-status">Em breve</p>
-          </article>
-
-          <article className="card dashboard-card">
-            <div className="dashboard-card-icon">📊</div>
-            <h3>Produtividade</h3>
-            <p className="dashboard-card-status">Em breve</p>
-          </article>
-        </section>
+        <DashboardLayout>
+          <HealthSummaryCard
+            data={data?.checkin}
+            isLoading={isLoading}
+            error={error}
+            onRetry={fetchDashboard}
+          />
+          <TaskSummaryCard
+            data={data?.tasks}
+            isLoading={isLoading}
+            error={error}
+            onRetry={fetchDashboard}
+          />
+          <GoalSummaryCard
+            data={data?.goals}
+            isLoading={isLoading}
+            error={error}
+            onRetry={fetchDashboard}
+          />
+          <ProductivityCard
+            data={data?.productivity}
+            isLoading={isLoading}
+            error={error}
+            onRetry={fetchDashboard}
+          />
+        </DashboardLayout>
       </main>
     </div>
   );

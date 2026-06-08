@@ -10,9 +10,9 @@
 
 ## Phase 1: Setup
 
-- [ ] T001 Setup - Confirm 002-auth is complete: login, register, logout, protected routes work
-- [ ] T002 Setup - Confirm feature documents exist under specs/003-dashboard/
-- [ ] T003 Setup - Create frontend/src/features/dashboard/components/ directory
+- [x] T001 Setup - Confirm 002-auth is complete: login, register, logout, protected routes work
+- [x] T002 Setup - Confirm feature documents exist under specs/003-dashboard/
+- [x] T003 Setup - Create frontend/src/features/dashboard/components/ directory
 
 **Checkpoint**: Dashboard feature directory ready. Auth confirmed working.
 
@@ -22,12 +22,12 @@
 
 **Purpose**: Build shared dashboard infrastructure — layout, API client, backend route.
 
-- [ ] T004 Backend - Create backend/src/routes/dashboardRoutes.js with GET /summary route
-- [ ] T005 Backend - Create backend/src/controllers/dashboardController.js with getSummary action returning default/null data for all sections
-- [ ] T006 Backend - Mount dashboard routes in backend/src/routes/index.js under /dashboard prefix with auth middleware
-- [ ] T007 Frontend - Create frontend/src/services/dashboardApi.js with getSummary(date) function
-- [ ] T008 [P] Frontend - Create frontend/src/features/dashboard/components/CardSkeleton.jsx with animated loading placeholder
-- [ ] T009 [P] Frontend - Create frontend/src/features/dashboard/components/EmptyStateCard.jsx with icon, message, and CTA button props
+- [x] T004 Backend - Create backend/src/routes/dashboardRoutes.js with GET /summary route
+- [x] T005 Backend - Create backend/src/controllers/dashboardController.js with getSummary action returning default/null data for all sections
+- [x] T006 Backend - Mount dashboard routes in backend/src/routes/index.js under /dashboard prefix with auth middleware
+- [x] T007 Frontend - Create frontend/src/services/dashboardApi.js with getSummary(date) function
+- [x] T008 [P] Frontend - Create frontend/src/features/dashboard/components/CardSkeleton.jsx with animated loading placeholder
+- [x] T009 [P] Frontend - Create frontend/src/features/dashboard/components/EmptyStateCard.jsx with icon, message, and CTA button props
 
 **Checkpoint**: Backend endpoint returns default data. Frontend has API client and reusable card primitives.
 
@@ -43,17 +43,17 @@
 
 ### Frontend for User Story 1
 
-- [ ] T010 [US1] Frontend - Create frontend/app/dashboard/page.js as protected dashboard route
-- [ ] T011 [US1] Frontend - Implement frontend/src/features/dashboard/components/DashboardLayout.jsx with CSS Grid responsive layout (1col mobile → 2col tablet → auto-fit desktop)
-- [ ] T012 [US1] Frontend - Implement frontend/src/features/dashboard/components/GreetingHeader.jsx displaying user name and formatted current date
-- [ ] T013 [P] [US1] Frontend - Implement frontend/src/features/dashboard/components/HealthSummaryCard.jsx showing check-in data or empty state
-- [ ] T014 [P] [US1] Frontend - Implement frontend/src/features/dashboard/components/TaskSummaryCard.jsx showing task counts by status or empty state
-- [ ] T015 [P] [US1] Frontend - Implement frontend/src/features/dashboard/components/GoalSummaryCard.jsx showing active goals progress or empty state
-- [ ] T016 [P] [US1] Frontend - Implement frontend/src/features/dashboard/components/ProductivityCard.jsx showing daily score or empty state
-- [ ] T017 [US1] Frontend - Connect dashboard page to dashboardApi.getSummary() with loading states per card
-- [ ] T018 [US1] Frontend - Add card-level error handling with retry button for failed API calls
-- [ ] T019 [US1] Frontend - Update auth flow to redirect to /dashboard after successful login (instead of /)
-- [ ] T020 [US1] Integration - Verify dashboard loads with greeting and all empty state cards after login
+- [x] T010 [US1] Frontend - Create frontend/app/dashboard/page.js as protected dashboard route
+- [x] T011 [US1] Frontend - Implement frontend/src/features/dashboard/components/DashboardLayout.jsx with CSS Grid responsive layout (1col mobile → 2col tablet → auto-fit desktop)
+- [x] T012 [US1] Frontend - Implement frontend/src/features/dashboard/components/GreetingHeader.jsx displaying user name and formatted current date
+- [x] T013 [P] [US1] Frontend - Implement frontend/src/features/dashboard/components/HealthSummaryCard.jsx showing check-in data or empty state
+- [x] T014 [P] [US1] Frontend - Implement frontend/src/features/dashboard/components/TaskSummaryCard.jsx showing task counts by status or empty state
+- [x] T015 [P] [US1] Frontend - Implement frontend/src/features/dashboard/components/GoalSummaryCard.jsx showing active goals progress or empty state
+- [x] T016 [P] [US1] Frontend - Implement frontend/src/features/dashboard/components/ProductivityCard.jsx showing daily score or empty state
+- [x] T017 [US1] Frontend - Connect dashboard page to dashboardApi.getSummary() with loading states per card
+- [x] T018 [US1] Frontend - Add card-level error handling with retry button for failed API calls
+- [x] T019 [US1] Frontend - Update auth flow to redirect to /dashboard after successful login (instead of /)
+- [x] T020 [US1] Integration - Verify dashboard loads with greeting and all empty state cards after login
 
 **Checkpoint**: Dashboard page works with greeting and cards. All cards show empty states with loading/error handling.
 
@@ -67,12 +67,12 @@
 
 **Learning Checkpoint**: Empty state UX design, CTA navigation patterns.
 
-- [ ] T021 [US2] Frontend - Add CTA buttons to HealthSummaryCard empty state: "Start your daily check-in" → links to /checkin
-- [ ] T022 [US2] Frontend - Add CTA buttons to TaskSummaryCard empty state: "Create your first task" → links to /tasks
-- [ ] T023 [US2] Frontend - Add CTA buttons to GoalSummaryCard empty state: "Set your first goal" → links to /goals
-- [ ] T024 [US2] Frontend - Add CTA to ProductivityCard empty state: "Complete a check-in to see your score" → links to /checkin
-- [ ] T025 [US2] Frontend - Verify CTA links navigate to correct routes (pages may not exist yet — verify URL changes)
-- [ ] T026 [US2] UX - Review empty state messages for encouraging, actionable tone (not clinical "No data found")
+- [x] T021 [US2] Frontend - Add CTA buttons to HealthSummaryCard empty state: "Start your daily check-in" → links to /checkin
+- [x] T022 [US2] Frontend - Add CTA buttons to TaskSummaryCard empty state: "Create your first task" → links to /tasks
+- [x] T023 [US2] Frontend - Add CTA buttons to GoalSummaryCard empty state: "Set your first goal" → links to /goals
+- [x] T024 [US2] Frontend - Add CTA to ProductivityCard empty state: "Complete a check-in to see your score" → links to /checkin
+- [x] T025 [US2] Frontend - Verify CTA links navigate to correct routes (pages may not exist yet — verify URL changes)
+- [x] T026 [US2] UX - Review empty state messages for encouraging, actionable tone (not clinical "No data found")
 
 **Checkpoint**: Empty states guide new users toward first actions. CTAs link to correct feature routes.
 
@@ -86,14 +86,14 @@
 
 **Learning Checkpoint**: CSS Grid breakpoints, responsive card sizing, touch target sizing.
 
-- [ ] T027 [US3] Frontend - Verify CSS Grid layout: 1 column at 375px mobile
-- [ ] T028 [US3] Frontend - Verify CSS Grid layout: 2 columns at 768px tablet
-- [ ] T029 [US3] Frontend - Verify CSS Grid layout: auto-fit multi-column at 1280px+ desktop
-- [ ] T030 [US3] Frontend - Verify no horizontal scrolling at any breakpoint
-- [ ] T031 [US3] Frontend - Verify card minimum height and consistent spacing across breakpoints
-- [ ] T032 [US3] Frontend - Verify greeting header scales appropriately (font size, spacing)
-- [ ] T033 [US3] Frontend - Verify CTA buttons have adequate touch targets (44px+) on mobile
-- [ ] T034 [US3] UX - Verify text readability on mobile without zooming
+- [x] T027 [US3] Frontend - Verify CSS Grid layout: 1 column at 375px mobile
+- [x] T028 [US3] Frontend - Verify CSS Grid layout: 2 columns at 768px tablet
+- [x] T029 [US3] Frontend - Verify CSS Grid layout: auto-fit multi-column at 1280px+ desktop
+- [x] T030 [US3] Frontend - Verify no horizontal scrolling at any breakpoint
+- [x] T031 [US3] Frontend - Verify card minimum height and consistent spacing across breakpoints
+- [x] T032 [US3] Frontend - Verify greeting header scales appropriately (font size, spacing)
+- [x] T033 [US3] Frontend - Verify CTA buttons have adequate touch targets (44px+) on mobile
+- [x] T034 [US3] UX - Verify text readability on mobile without zooming
 
 **Checkpoint**: Dashboard is fully responsive and usable across all viewports.
 
@@ -101,17 +101,17 @@
 
 ## Final Phase: Polish & Validation
 
-- [ ] T035 Integration - Verify dashboard requires authentication (unauthenticated → redirect to /login)
-- [ ] T036 Integration - Verify dashboard shows correct user name in greeting
-- [ ] T037 Backend - Verify GET /api/dashboard/summary requires auth and returns 401 without token
-- [ ] T038 Backend - Verify summary endpoint returns proper response shape with null/default data
-- [ ] T039 UX - Review visual consistency: card spacing, typography, color hierarchy
-- [ ] T040 UX - Verify dark mode foundation if CSS variables are set up
-- [ ] T041 UX - Review accessibility: semantic HTML, aria labels on cards, heading hierarchy
-- [ ] T042 Frontend - Review component composition for maintainability and clean separation
-- [ ] T043 Docs - Update specs/003-dashboard/ with final implementation notes
-- [ ] T044 [P] Docs - Document dashboard layout decisions in docs/decisions/003-dashboard-layout.md
-- [ ] T045 Cleanup - Remove console.log debugging and unused imports
+- [x] T035 Integration - Verify dashboard requires authentication (unauthenticated → redirect to /login)
+- [x] T036 Integration - Verify dashboard shows correct user name in greeting
+- [x] T037 Backend - Verify GET /api/dashboard/summary requires auth and returns 401 without token
+- [x] T038 Backend - Verify summary endpoint returns proper response shape with null/default data
+- [x] T039 UX - Review visual consistency: card spacing, typography, color hierarchy
+- [x] T040 UX - Verify dark mode foundation if CSS variables are set up
+- [x] T041 UX - Review accessibility: semantic HTML, aria labels on cards, heading hierarchy
+- [x] T042 Frontend - Review component composition for maintainability and clean separation
+- [x] T043 Docs - Update specs/003-dashboard/ with final implementation notes
+- [x] T044 [P] Docs - Document dashboard layout decisions in docs/decisions/003-dashboard-layout.md
+- [x] T045 Cleanup - Remove console.log debugging and unused imports
 
 **Checkpoint**: Dashboard is polished, responsive, accessible, and documented. Ready for data integration with 004-006.
 

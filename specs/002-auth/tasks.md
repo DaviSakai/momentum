@@ -15,7 +15,7 @@
 - [x] T001 Setup - Confirm 001-project-foundation is complete: Next.js frontend runs, Express backend runs, SQLite database connects, migration system works
 - [x] T002 Setup - Confirm feature documents exist under specs/002-auth/
 - [x] T003 Setup - Install jsonwebtoken and bcrypt as production dependencies in backend/package.json
-- [ ] T004 [P] Setup - Document dependency decisions for jsonwebtoken and bcrypt in docs/decisions/002-auth-dependencies.md
+- [x] T004 [P] Setup - Document dependency decisions for jsonwebtoken and bcrypt in docs/decisions/002-auth-dependencies.md
 
 **Checkpoint**: Prerequisites verified, auth dependencies installed.
 
@@ -155,17 +155,17 @@
 
 **Purpose**: Cross-cutting validation and cleanup.
 
-- [ ] T051 Integration - Test full flow: register → dashboard → logout → login → dashboard → logout
-- [ ] T052 UX - Validate all auth pages on mobile (375px), tablet (768px), and desktop (1280px)
-- [ ] T053 UX - Verify no layout overlap, horizontal scrolling, or hidden controls on auth pages
-- [ ] T054 UX - Review accessibility: form labels, focus management, error announcements, keyboard navigation
-- [ ] T055 Backend - Review authController, authService, authMiddleware for clean responsibility boundaries
-- [ ] T056 Backend - Verify error responses use consistent shape: { error: { code, message, details? } }
-- [ ] T057 Database - Review users table schema for PostgreSQL portability
-- [ ] T058 Frontend - Review AuthContext, auth components, and authApi for maintainability
-- [ ] T059 Docs - Update specs/002-auth/ documents with final implementation notes
-- [ ] T060 [P] Docs - Record auth architecture decisions in docs/decisions/002-auth-architecture.md
-- [ ] T061 Cleanup - Remove console.log debugging, unused imports, and temporary code
+- [x] T051 Integration - Test full flow: register → dashboard → logout → login → dashboard → logout
+- [x] T052 UX - Validate all auth pages on mobile (375px), tablet (768px), and desktop (1280px)
+- [x] T053 UX - Verify no layout overlap, horizontal scrolling, or hidden controls on auth pages
+- [x] T054 UX - Review accessibility: form labels, focus management, error announcements, keyboard navigation
+- [x] T055 Backend - Review authController, authService, authMiddleware for clean responsibility boundaries
+- [x] T056 Backend - Verify error responses use consistent shape: { error: { code, message, details? } }
+- [x] T057 Database - Review users table schema for PostgreSQL portability
+- [x] T058 Frontend - Review AuthContext, auth components, and authApi for maintainability
+- [x] T059 Docs - Update specs/002-auth/ documents with final implementation notes
+- [x] T060 [P] Docs - Record auth architecture decisions in docs/decisions/002-auth-architecture.md
+- [x] T061 Cleanup - Remove console.log debugging, unused imports, and temporary code
 
 **Checkpoint**: Auth feature is complete, responsive, secure, and documented. Ready for 003-dashboard.
 
